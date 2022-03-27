@@ -16,11 +16,13 @@ import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 
 import java.math.BigDecimal;
+import java.util.HashSet;
 import java.util.List;
 import java.util.Set;
 
 import static com.sapient.test.exception.ErrorCodes.DB_QUERY_TIME_OUT;
 import static com.sapient.test.validation.ValidationMessages.INVALID_CARD_NUMBER;
+import static com.sapient.test.validation.ValidationMessages.NEW_CARD_BALANCE_MESSAGE;
 import static java.util.Collections.emptyList;
 import static java.util.Collections.emptySet;
 import static java.util.Objects.requireNonNull;
@@ -66,6 +68,16 @@ class CardControllerTest {
         assertEquals(HttpStatus.BAD_REQUEST, response.getStatusCode());
         verify(validatorService, times(1)).apply(sampleCardDetails);
         assertTrue(requireNonNull(response.getBody()).contains(INVALID_CARD_NUMBER));
+    }
+
+    @Test
+    void verifyAddingANewCardOnlyAcceptsZeroBalance() {
+        CardDetails sampleCardDetails = CardDetails.builder().cardNumber(125L).cardLimit(BigDecimal.ONE).balance(BigDecimal.TEN).printableName("CardHolderName").build();
+        when(validatorService.apply(sampleCardDetails)).thenReturn(new HashSet<>());
+        ResponseEntity<String> response = testRestTemplate.postForEntity(String.format(baseUrl, port), sampleCardDetails, String.class);
+        assertEquals(HttpStatus.BAD_REQUEST, response.getStatusCode());
+        verify(validatorService, times(1)).apply(sampleCardDetails);
+        assertTrue(requireNonNull(response.getBody()).contains(NEW_CARD_BALANCE_MESSAGE));
     }
 
     @Test
