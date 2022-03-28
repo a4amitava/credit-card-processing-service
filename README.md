@@ -1,6 +1,6 @@
 # credit-card-processing-service:
 
-**Technology Stack:**  Springboot, In-memory H2 DataBase, JPA-Hibernate, javax Validation framework, RestTemplate for Api, maven, and Junit 5 as testing framework
+**Technology Stack:**  Java11, Springboot, In-memory H2 DataBase, JPA-Hibernate, javax Validation framework, RestTemplate for Api, maven, and Junit 5 as testing framework
 
 **DataBase Configuration:** (Property based)
  - DB console URL: http://localhost:8080/h2-console/
