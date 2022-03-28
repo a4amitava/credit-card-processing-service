@@ -1,5 +1,8 @@
 package com.sapient.test.exception;
 
+/**
+ * An Application exception will be thrown with the error code when the application encountered a error while processing/saving/retrieving data
+ */
 public class ApplicationException extends RuntimeException {
 
     private final ErrorCodes errorCodes;

@@ -1,5 +1,8 @@
 package com.sapient.test.exception;
 
+/**
+ * When Error encountered, exception will be thrown with the appropriate error code
+ */
 public enum ErrorCodes {
 
     DB_QUERY_TIME_OUT("Data Base query timed out"),
