@@ -8,7 +8,7 @@
  - Password: Currently No password has added. 
  
 **Service description:**
-This service provides 2 rest endpoints- 
+This service provides 2 rest endpoints(json formatted)- 
 
 1._ Adding New Card🥇 
 
@@ -16,7 +16,9 @@ This service provides 2 rest endpoints-
 - This uri is to create a new credit card for a given name, card number, and limit
 - Card numbers has been validated using Luhn 10, A validation logic has been written and a custom annotation has been cerated to reuse the validation logic. 
 - Appropriate error/exception/validation model has been followed.
-- All the validation logic has been respected and verified through junit-5 
+- All the validation logic has been respected and verified through junit-5
+- Coding has been follwed SOLID principles
+- A manifest file has been created for the deployment to cloud foundary's container based PaaS platform. This can be modified to any other cloud/contanier based platform.   
 
 Sample Payload : 
 POST http://localhost:8080/api/cards
