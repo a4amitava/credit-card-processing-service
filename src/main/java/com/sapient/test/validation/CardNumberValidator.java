@@ -17,7 +17,7 @@ import static com.sapient.test.validation.NumberUtils.convertNumberToIntList;
  * 1. Double the value of every other digit from right to left, beginning with the second to last digit.
  * 2. Add the digits of the results of Step 1 to the remaining digits in the credit card number.
  * 3. Sum the resulting values from all positions
- * 4.  If the total modulo 10 is equal to 0 then the number is valid according to the Luhn formula; else it is not valid.
+ * 4. If the total modulo 10 is equal to 0 then the number is valid according to the Luhn formula; else it is not valid.
  */
 
 @Slf4j
