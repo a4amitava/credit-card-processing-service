@@ -10,7 +10,7 @@ import java.util.stream.IntStream;
 import static java.util.stream.Collectors.toList;
 
 @UtilityClass
-public class NumberUtils {
+public final class NumberUtils {
     public static final Function<Long, List<Integer>> convertNumberToIntList = (cardNumber) -> String.valueOf(cardNumber).chars().mapToObj(Character::getNumericValue).collect(toList());
 
     public static Integer calculateSumOfAllOddPlacesDigit(List<Integer> numberList) {
