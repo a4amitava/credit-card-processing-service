@@ -16,7 +16,9 @@ This service provides 2 rest endpoints(json formatted)-
 - Coding has been follwed SOLID principles
 - A manifest file has been created for the deployment to cloud foundary's container based PaaS platform. This can be modified to any other cloud/contanier based platform.   
 
-Sample Payload : 
+Sample Payload : Below are sample payload, but please refer the scratches file under resource folder to test the endpoints 
+
+
 POST http://localhost:8080/api/cards
 Content-Type: application/json
 Authorization: Basic admin password
