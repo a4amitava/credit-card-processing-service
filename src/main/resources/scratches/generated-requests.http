@@ -1,0 +1,28 @@
+###
+POST http://localhost:8080/api/cards
+Content-Type: application/json
+Authorization: Basic admin password
+
+{
+  "printableName": "CardHolder Name", "cardNumber" : "4847352989263094", "cardLimit" : 10
+}
+
+<> 2022-03-31T120926.200.txt
+<> 2022-03-30T111706.200.txt
+
+
+
+
+
+
+
+###
+GET http://localhost:8080/api/cards
+Authorization: Basic admin password
+
+<> 2022-03-31T120930.200.json
+<> 2022-03-31T120908.200.json
+
+
+
+
