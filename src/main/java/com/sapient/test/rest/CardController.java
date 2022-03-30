@@ -9,6 +9,7 @@ import lombok.RequiredArgsConstructor;
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
+import org.springframework.security.access.prepost.PreAuthorize;
 import org.springframework.web.bind.annotation.ExceptionHandler;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PostMapping;
@@ -32,6 +33,7 @@ public class CardController {
     private final ValidatorService validatorService;
 
     @PostMapping
+    @PreAuthorize("hasRole('ADMIN')")
     public ResponseEntity<String> add(@RequestBody CardDetails cardDetails) {
         Long cardNumber = cardDetails.getCardNumber();
         log.info("Received request to add card for #{}", cardNumber);
@@ -49,6 +51,7 @@ public class CardController {
     }
 
     @GetMapping
+    @PreAuthorize("hasAnyRole('ADMIN','VIEWER')")
     public List<CardDetails> fetchAllCards() {
         log.info("Attempting to retrieve all card details");
         return cardService.getAllCards();
